@@ -1,3 +1,23 @@
 {
-  "HELLO": "Hello"
+  "TITLE": "Fleet Viewer",
+  "CREATE_ACCOUNT": "Create account",
+  "EMAIL_ADDRESS": "Email address",
+  "FULL_NAME": "Full name",
+  "PASSWORD": "Password",
+  "CONFIRM_PASSWORD": "Confirm password",
+  "FORGOT_PASSWORD": "Forgot passowrd?",
+  "ALREADY_HAVE_ACCOUNT": "Already have an account?",
+  "NOT_MEMBER": "Not a member?",
+  "SIGN_UP_HERE": "Sign up here",
+  "SIGN_IN": "Sign in",
+  "SUCCESSFULLY_LOGGED_IN": "Successfully logged in!",
+  "SUCCESSFULLY_LOGGED_OUT": "Successfull logged out!",
+  "404": "404",
+  "PAGE_NOT_FOUND": "Page Not Found",
+  "PAGE_DOES_NOT_EXIST": "Sorry, the page you're looking for doesn't exist or has been moved",
+  "BACK_HOME": "Back to Home",
+  "NO_REVIEWS_YET": "No reviews yet",
+  "LOGOUT": "Logout",
+  "FLEET_VIEWER": "Fleet Viewer",
+  "EVENT_GENERATOR": "Events Generator"
 }

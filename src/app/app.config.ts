@@ -6,6 +6,7 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { baseUrlInterceptor } from './Interceptors/base-url-interceptor';
 import { headersInterceptor } from './Interceptors/headers-interceptor';
+import { unauthorizedInterceptor } from './Interceptors/unauthorized-interceptor';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -16,7 +17,7 @@ export const appConfig: ApplicationConfig = {
       withInterceptors([
         baseUrlInterceptor, 
         headersInterceptor,
-        
+        unauthorizedInterceptor
       ])
     )
 

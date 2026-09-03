@@ -12,10 +12,11 @@ import { toObservable } from '@angular/core/rxjs-interop';
 import { BehaviorSubject, filter, Subscription, switchMap, take, timer } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { Robot } from '../../../models/Robot';
+import { NavBar } from '../../shared/nav-bar/nav-bar';
 
 @Component({
   selector: 'app-dashboard-component',
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, NavBar],
   templateUrl: './dashboard-component.html',
 })
 export class DashboardComponent implements OnInit, OnDestroy {

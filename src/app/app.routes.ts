@@ -3,8 +3,12 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'fleet-viewer',
+        redirectTo: 'authorization',
         pathMatch: 'full'
+    },
+    {
+        path: 'authorization',
+        loadChildren: () => import('./modules/authoziation-module/authoziation-module-module').then(m => m.AuthoziationModuleModule),
     },
     {
         path: 'fleet-viewer',
