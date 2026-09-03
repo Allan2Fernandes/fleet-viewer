@@ -10,6 +10,12 @@
 
   <div class="flex-none flex items-center justify-end gap-3">
     <app-button
+      [text]="'TREND_VIEWER' | translate"
+      [buttonStyle]="'flex items-center justify-center font-medium rounded-lg hover:bg-amber-700 bg-gray-900 h-10'"
+      [contentStyle]="'flex items-center justify-center px-4 text-stone-200 font-serif'"
+      (clicked)="trendViewerClicked()"
+    />
+    <app-button
       [text]="'FLEET_VIEWER' | translate"
       [buttonStyle]="'flex items-center justify-center font-medium rounded-lg hover:bg-amber-700 bg-gray-900 h-10'"
       [contentStyle]="'flex items-center justify-center px-4 text-stone-200 font-serif'"
