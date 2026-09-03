@@ -58,8 +58,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       }),
       this.pollingInterval$.pipe(
         switchMap(interval => timer(0, interval))
-      )
-      .subscribe(() => {
+      ).subscribe(() => {
         this.robotStore.getRobotsLatestEvents(this.selectedRobotIds);
       }),
       this.robotsLatestEvents$.subscribe(() => {

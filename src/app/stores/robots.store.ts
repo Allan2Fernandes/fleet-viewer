@@ -52,6 +52,11 @@ export const RobotStore = signalStore(
                 robotApiService.getListOfRobots().subscribe({
                     next: (res: Robot[]) => {
                       patchState(store, {listOfRobots: res, loading: false});
+                      toastService.add({
+                          id: crypto.randomUUID(),
+                          type: 'success',
+                          message: 'SuccessFully fetched robots'
+                        });
                     },
                     error: (err) => {
                         patchState(store, {loading: false});
