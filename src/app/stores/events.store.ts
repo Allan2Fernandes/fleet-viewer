@@ -21,9 +21,9 @@ export const EventStore = signalStore(
         const toastService = inject(ToastService);
         const eventAPIService =  inject(EventApiService);
         return {
-            generateMockEvents() {
+            generateMockEvents(fleetSize: number) {
                 patchState(store, {loading: true});
-                eventAPIService.regenerateMockData().subscribe({
+                eventAPIService.regenerateMockData(fleetSize).subscribe({
                     next: (res: {message: string}) => {
                       patchState(store, {loading: false});
                       toastService.add({

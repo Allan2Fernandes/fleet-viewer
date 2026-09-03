@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class EventApiService {
   httpClient = inject(HttpClient);
 
-  public regenerateMockData(): Observable<{message: string}> {
-    return this.httpClient.post<{message: string}>('events/create-mock-events', {});
+  public regenerateMockData(fleetSize: number): Observable<{message: string}> {
+    return this.httpClient.post<{message: string}>('events/create-mock-events', {fleet_size: fleetSize});
   }
 }
