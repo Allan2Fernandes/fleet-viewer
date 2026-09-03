@@ -6,6 +6,7 @@ import { ToastService } from './toast-service';
 import { TranslationService } from './translation-service';
 import { Helper } from './helper';
 import { LoginResponse } from '../models/LoginResponse';
+import { v4 } from 'uuid';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +25,7 @@ export class AuthorizationService {
         this.tokenService.setToken(res.token);
         this.router.navigate(['/fleet-viewer']);
         this.toastService.add({
-          id: crypto.randomUUID(),
+          id: v4(),
           type: 'success',
           message: this.translateService.translate("SUCCESSFULLY_LOGGED_IN")
         })
@@ -32,7 +33,7 @@ export class AuthorizationService {
       },
       error: (err) => {
         this.toastService.add({
-          id: crypto.randomUUID(),
+          id: v4(),
           type: 'error',
           message: err.error.message
         });
@@ -46,7 +47,7 @@ export class AuthorizationService {
       next: (res) => {
         this.tokenService.clearToken();
          this.toastService.add({
-          id: crypto.randomUUID(),
+          id: v4(),
           type: 'success',
           message: this.translateService.translate("SUCCESSFULLY_LOGGED_OUT")
         });
@@ -54,7 +55,7 @@ export class AuthorizationService {
       },
       error: (err) => {
         this.toastService.add({
-          id: crypto.randomUUID(),
+          id: v4(),
           type: 'error',
           message: err.error.message
         });

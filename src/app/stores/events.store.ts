@@ -3,6 +3,7 @@ import { ToastService } from "../services/toast-service";
 import { inject } from "@angular/core";
 import { EventApiService } from "../services/event-api-service";
 import { RobotActiveStatusSummary } from "../models/RobotActiveStatusSummary";
+import { v4 } from "uuid";
 
 type RobotActiveStatusHistoryEntry = RobotActiveStatusSummary & { timestamp: number };
 
@@ -29,7 +30,7 @@ export const EventStore = signalStore(
           next: (res: { message: string }) => {
             patchState(store, { loading: false });
             toastService.add({
-              id: crypto.randomUUID(),
+              id: v4(),
               type: 'success',
               message: res.message
             });
@@ -40,7 +41,7 @@ export const EventStore = signalStore(
               ? 'Unable to connect to the server'
               : err.error?.message ?? 'Something went wrong';
             toastService.add({
-              id: crypto.randomUUID(),
+              id: v4(),
               type: 'error',
               message
             });
@@ -65,7 +66,7 @@ export const EventStore = signalStore(
               ? 'Unable to connect to the server'
               : err.error?.message ?? 'Something went wrong';
             toastService.add({
-              id: crypto.randomUUID(),
+              id: v4(),
               type: 'error',
               message
             });

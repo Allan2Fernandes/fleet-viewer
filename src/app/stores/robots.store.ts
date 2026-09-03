@@ -3,6 +3,7 @@ import { ToastService } from "../services/toast-service";
 import { inject } from "@angular/core";
 import { RobotApiService } from "../services/robot-api-service";
 import { Robot } from "../models/Robot";
+import { v4 } from "uuid";
 
 type RobotState = {
     latestRobotEvents: Robot[];
@@ -40,7 +41,7 @@ export const RobotStore = signalStore(
                             message = err.error?.message ?? 'Something went wrong';
                         }
                         toastService.add({
-                          id: crypto.randomUUID(),
+                          id: v4(),
                           type: 'error',
                           message: err.error.message
                         });
@@ -53,7 +54,7 @@ export const RobotStore = signalStore(
                     next: (res: Robot[]) => {
                       patchState(store, {listOfRobots: res, loading: false});
                       toastService.add({
-                          id: crypto.randomUUID(),
+                          id: v4(),
                           type: 'success',
                           message: 'SuccessFully fetched robots'
                         });
@@ -67,7 +68,7 @@ export const RobotStore = signalStore(
                             message = err.error?.message ?? 'Something went wrong';
                         }
                         toastService.add({
-                          id: crypto.randomUUID(),
+                          id: v4(),
                           type: 'error',
                           message: err.error.message
                         });
