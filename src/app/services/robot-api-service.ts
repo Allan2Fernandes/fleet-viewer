@@ -15,6 +15,6 @@ export class RobotApiService {
   }
 
   getListOfRobots(): Observable<Robot[]> {
-    return this.httpClient.get<Robot[]>('robots/');
+    return this.httpClient.post<Robot[]>('robots/', {});
   }
 }
