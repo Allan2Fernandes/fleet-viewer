@@ -1,12 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthorizationService } from '../../../services/authorization-service';
-import { TranslatePipe } from "../../../pipes/translate-pipe";
-import { Button } from "../../shared/button/button";
 
 @Component({
   selector: 'app-login-component',
-  imports: [ReactiveFormsModule, TranslatePipe, Button],
+  imports: [ReactiveFormsModule],
   templateUrl: './login-component.html',
 })
 export class LoginComponent implements OnInit {

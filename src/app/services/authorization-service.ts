@@ -40,7 +40,7 @@ export class AuthorizationService {
     });
   }
 
-  logout() {
+   logout() {
         this.httpClient.post('auth/logout', [])
     .subscribe({
       next: (res) => {

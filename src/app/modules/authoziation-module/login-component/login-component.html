@@ -1,50 +1,50 @@
-<div class="h-screen w-full flex flex-row overflow-hidden">
-  <div class="flex-1 bg-stone-950 p-10 flex flex-col">
-    <div class="p-15 gap-5 flex flex-col h-full min-h-0">
-      <div class="text-stone-600">Allan Fernandes</div>
-      <div class="text-stone-500 text-7xl font-serif italic">Goods Made to Last</div>
-      <div class="text-stone-500">
-        Curated goods for the considered home — sourced from artisans who work slowly and with purpose
-      </div>
-      <img src="assets/images/ecommerce-login-picture.jpg" class="w-full flex-1 object-cover" alt="logo">
+<div class="min-h-screen flex items-center justify-center bg-stone-200">
+
+  <form [formGroup]="form" class="w-72">
+
+    <h1 class="text-3xl font-serif mb-6">
+      Welcome Back
+    </h1>
+
+    <div class="mb-4">
+      <label for="email" class="text-sm">
+        Email
+      </label>
+
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        required
+        autocomplete="email"
+        class="w-full mt-1 px-3 py-2 border border-stone-400 rounded"
+      />
     </div>
-  </div>
 
-  <div class="flex-1 bg-stone-200 p-28">
-    <div class="w-full h-full flex flex-col gap-5">
+    <div class="mb-6">
+      <label for="password" class="text-sm">
+        Password
+      </label>
 
-      <div class="flex flex-col gap-2">
-        <div class="text-5xl font-serif">Welcome Back</div>
-        <div class="text-stone-500 ml-2">Sign in to explore the collection</div>
-      </div>
-
-      <form [formGroup]="form">
-        <div>
-          <label class="text-xs font-mono text-stone-500" for="email" >{{"EMAIL_ADDRESS" | translate}}</label>
-          <div class="mt-2">
-            <input class="bg-stone-300 border border-stone-400 block w-72 rounded-md bg-gray-100 px-3 py-1.5 focus:border-amber-700 focus:outline-none border-2" id="email" type="email" formControlName="email" required autocomplete="email"/>
-          </div>
-        </div>
-        <div>
-          <label for="password" class="text-xs font-mono text-stone-500">{{"PASSWORD" | translate}}</label>
-          <div class="mt-2">
-            <input id="password" type="password" formControlName="password" required autocomplete="current-password" class="bg-stone-300 border border-stone-400 block w-72 rounded-md bg-gray-100 px-3 py-1.5 focus:border-amber-700 focus:outline-none border-2" />
-          </div>
-        </div>
-        <div class="mt-8">
-          <app-button
-            [buttonStyle]="'flex items-center justify-center font-medium rounded-lg hover:bg-amber-700 bg-gray-900 w-72 h-10'"
-            [contentStyle]="'flex items-center justify-center px-3 text-stone-200 font-serif'"
-            [text]="'SIGN_IN' | translate"
-            (clicked)="login()"
-            [disabled]="!form.valid"
-          />
-        </div>
-         <p class="mt-6 ml-2 text-sm/6 text-stone-500">
-          {{"NOT_MEMBER" | translate}}
-          <a href="/authorization/signup" class="font-semibold text-stone-500 hover:text-stone-400 underline">{{"SIGN_UP_HERE" | translate}}</a>
-        </p>
-      </form>
+      <input
+        id="password"
+        type="password"
+        formControlName="password"
+        required
+        autocomplete="current-password"
+        class="w-full mt-1 px-3 py-2 border border-stone-400 rounded"
+      />
     </div>
-  </div>
+
+    <button
+      type="button"
+      (click)="login()"
+      [disabled]="!form.valid"
+      class="w-full py-2 bg-gray-900 text-white rounded disabled:opacity-50"
+    >
+      Sign In
+    </button>
+
+  </form>
+
 </div>
