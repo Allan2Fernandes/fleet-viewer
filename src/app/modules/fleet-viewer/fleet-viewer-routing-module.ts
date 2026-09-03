@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard-component/dashboard-component';
+import { TrendViewer } from './trend-viewer/trend-viewer';
 
 const routes: Routes = [
     {
@@ -9,6 +10,7 @@ const routes: Routes = [
       pathMatch: 'full'
     },
     {path: 'dashboard', component: DashboardComponent},
+    {path: 'trend-viewer', component: TrendViewer}
 ];
 
 @NgModule({

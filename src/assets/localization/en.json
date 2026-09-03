@@ -19,5 +19,6 @@
   "NO_REVIEWS_YET": "No reviews yet",
   "LOGOUT": "Logout",
   "FLEET_VIEWER": "Fleet Viewer",
-  "EVENT_GENERATOR": "Events Generator"
+  "EVENT_GENERATOR": "Events Generator",
+  "TREND_VIEWER": "Trend Viewer"
 }

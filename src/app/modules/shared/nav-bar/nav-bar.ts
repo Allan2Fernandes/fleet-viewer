@@ -39,6 +39,10 @@ export class NavBar implements OnInit{
     this.router.navigate(['/events']);
   }
 
+  trendViewerClicked() {
+    this.router.navigate(['/fleet-viewer/trend-viewer']);
+  }
+
   logout() {
     this.authorizationService.logout();
   }
