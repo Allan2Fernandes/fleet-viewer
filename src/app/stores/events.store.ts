@@ -26,6 +26,11 @@ export const EventStore = signalStore(
                 eventAPIService.regenerateMockData().subscribe({
                     next: (res: {message: string}) => {
                       patchState(store, {loading: false});
+                      toastService.add({
+                        id: crypto.randomUUID(),
+                        type: 'success',
+                        message: res.message
+                      }); 
                     },
                     error: (err) => {
                         patchState(store, {loading: false});
