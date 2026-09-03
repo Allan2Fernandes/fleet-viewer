@@ -52,10 +52,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.draw();
 
     this.subscription.push(
-      this.listOfRobots$.pipe(filter(list => list.length > 0), take(1)).subscribe(list => {
+      this.listOfRobots$.subscribe(list => {
         list.forEach(robot => {
           this.selectedRobotIds.add(robot.id);
         });
+        this.draw();
       }),
       this.pollingInterval$.pipe(
         switchMap(interval => timer(0, interval))
