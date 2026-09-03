@@ -11,6 +11,7 @@ import { RobotStore } from '../../../stores/robots.store';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { BehaviorSubject, filter, Subscription, switchMap, take, timer } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { Robot } from '../../../models/Robot';
 
 @Component({
   selector: 'app-dashboard-component',
@@ -133,7 +134,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         ctx,
         latestEvent.x,
         latestEvent.y,
-        robot.type,
+        robot,
         latestEvent.status,
       );
     }
@@ -143,7 +144,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     ctx: CanvasRenderingContext2D,
     x: number,
     y: number,
-    type: string,
+    robot: Robot,
     status: string,
   ): void {
 
@@ -153,7 +154,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     ctx.beginPath();
     ctx.arc(x, y, radius, 0, Math.PI * 2);
 
-    ctx.fillStyle = type === 'Picker'
+    ctx.fillStyle = robot.type === 'Picker'
       ? '#3b82f6'
       : '#f97316';
 
@@ -170,7 +171,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     ctx.textAlign = 'center';
 
     ctx.fillText(
-      type,
+      robot.type,
       x,
       y - radius - 6,
     );
