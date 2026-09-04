@@ -9,8 +9,12 @@ import { RobotActiveStatusSummary } from '../models/RobotActiveStatusSummary';
 export class EventApiService {
   httpClient = inject(HttpClient);
 
-  public regenerateMockData(fleetSize: number): Observable<{message: string}> {
+  public generateNewFleet(fleetSize: number): Observable<{message: string}> {
     return this.httpClient.post<{message: string}>('events/create-mock-events', {fleet_size: fleetSize});
+  }
+
+  public generateEventsForExistingFleet(): Observable<{message: string}> {
+    return this.httpClient.post<{message: string}>('events/create-mock-data', {});
   }
 
   public getActiveRobotsTrend(): Observable<RobotActiveStatusSummary> {

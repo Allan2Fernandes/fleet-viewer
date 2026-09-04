@@ -26,11 +26,17 @@
     </form>
 
     <app-button
-        [text]="'Generate new mock data'"
+        [text]="'GENERATE_NEW_FLEET' | translate"
         (clicked)="generateMockData()"
         [buttonStyle]="'flex items-center justify-center font-medium rounded-lg hover:bg-amber-700 bg-gray-900 h-10'"
         [contentStyle]="'flex items-center justify-center px-4 text-stone-200 font-serif gap-2'"
     />
 
+    <app-button
+        [text]="'GENERATE_MORE_DATA' | translate"
+        (clicked)="generateMoreMockData()"
+        [buttonStyle]="'flex items-center justify-center font-medium rounded-lg hover:bg-amber-700 bg-gray-900 h-10'"
+        [contentStyle]="'flex items-center justify-center px-4 text-stone-200 font-serif gap-2'"
+    />
+
 </div>
-```
