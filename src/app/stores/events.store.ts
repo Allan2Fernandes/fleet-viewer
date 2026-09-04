@@ -24,15 +24,39 @@ export const EventStore = signalStore(
     const toastService = inject(ToastService);
     const eventAPIService = inject(EventApiService);
     return {
-      generateMockEvents(fleetSize: number) {
+      generateNewFleet(fleetSize: number) {
         patchState(store, { loading: true });
-        eventAPIService.regenerateMockData(fleetSize).subscribe({
+        eventAPIService.generateNewFleet(fleetSize).subscribe({
           next: (res: { message: string }) => {
             patchState(store, { loading: false });
             toastService.add({
               id: v4(),
               type: 'success',
               message: res.message
+            });
+          },
+          error: (err) => {
+            patchState(store, { loading: false });
+            const message = err.status === 0
+              ? 'Unable to connect to the server'
+              : err.error?.message ?? 'Something went wrong';
+            toastService.add({
+              id: v4(),
+              type: 'error',
+              message
+            });
+          }
+        })
+      },
+      generateEventsForExistingFleet() {
+        patchState(store, { loading: true });
+        eventAPIService.generateEventsForExistingFleet().subscribe({
+          next: (res: { message: string }) => {
+            patchState(store, { loading: false });
+            toastService.add({
+              id: v4(),
+              type: 'success',
+              message: 'Created more mock data'
             });
           },
           error: (err) => {
@@ -73,6 +97,7 @@ export const EventStore = signalStore(
           }
         })
       },
+      
     }
   }),
 );
