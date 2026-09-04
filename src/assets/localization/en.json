@@ -26,5 +26,6 @@
   "CONFIMATION_MODAL_TITLE_DATA": "Are you sure you want to generate more data?",
   "CONFIMATION_MODAL_DESCRIPTION_DATA": "Generating all the data will take some time. Your experience could be affected",
   "GENERATE_NEW_FLEET": "Generate new fleet",
-  "GENERATE_MORE_DATA": "Generate more data for existing fleet"
+  "GENERATE_MORE_DATA": "Generate more data for existing fleet",
+  "BACK_TO_DASHBOARD": "Return to dashboard"
 }
