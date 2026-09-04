@@ -63,12 +63,20 @@ export class TrendViewer implements OnInit, OnDestroy {
     {
       name: 'Active Robots',
       data: []
+    },
+    {
+      name: 'Idle Robots',
+      data: []
+    },
+    {
+      name: "Maintenance Robots",
+      data: []
     }
   ];
 
   xaxis: ApexXAxis = {
     type: 'datetime',
-    range: 30000
+    range: 60000
   };
 
   yaxis: ApexYAxis = {
@@ -91,15 +99,28 @@ export class TrendViewer implements OnInit, OnDestroy {
           return;
         }
 
-        const newPoints = history.slice(this.lastRenderedCount).map(entry => ({
+        const newPointsActive = history.slice(this.lastRenderedCount).map(entry => ({
           x: entry.timestamp,
           y: entry.active_count
         }));
 
+        const newPointsIdle = history.slice(this.lastRenderedCount).map(entry => ({
+          x: entry.timestamp,
+          y: entry.idle_count
+        }));
+
+        const newPointsMaintenance = history.slice(this.lastRenderedCount).map(entry => ({
+          x: entry.timestamp,
+          y: entry.maintenance_count
+        }));
+        
+
         this.lastRenderedCount = history.length;
 
         this.chartRef().appendData([
-          { data: newPoints }
+          { data: newPointsActive },
+          { data: newPointsIdle},
+          { data: newPointsMaintenance}
         ]);
       }),
     );
